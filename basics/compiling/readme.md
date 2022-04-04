@@ -11,7 +11,8 @@
 ### Assemble code
 
 ```txt
-g++ -S input.cpp -o output.s
+g++ -S 
+input.cpp -o output.s
 ```
 
 ### Compile code to object code
