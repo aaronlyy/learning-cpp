@@ -11,7 +11,7 @@
 ### Assemble code
 
 ```txt
-g++ -S -o output.s input.cpp
+g++ -S input.cpp -o output.s
 ```
 
 ### Compile code to object code
@@ -23,7 +23,7 @@ g++ -c input.cpp input2.cpp
 ### Link object code and create executable
 
 ```txt
-g++ -o output.exe input.o input2.o
+g++ input.o input2.o -o output.exe
 ```
 
 ## Flags
