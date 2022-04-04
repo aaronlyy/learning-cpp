@@ -24,5 +24,5 @@ int main() {
     double e = 3.14; // size of double is 8 bytes
     long double f = 3.14; // size of long double is 16 bytes
 
-    bool h = true; // size of bool is 1std::cout << "Size of char : " << sizeof(char);
+    bool h = true; // size of bool is 1
 }
