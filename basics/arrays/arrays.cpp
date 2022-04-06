@@ -2,7 +2,9 @@
 
 int main() {
     // create new array of integer (c-style) (stack)
-    int arr2[5] = {1,2,3,4,5};
+    // array zeigt auf erste Adresse, die im Stack liegt
+    // länge muss angegeben werden
+    int arr2[5] = {1,2,3,4,5}; // = & size kann weggelassen werden also int arr2[]{1,2,3,4,5};
     // loop through array
     for (int i = 0; i < 5; i++) {
         std::cout << arr2[i] << "\n";
@@ -19,4 +21,8 @@ int main() {
     }
     // free space on heap
     delete[] arr3;
+
+    // create array of chars (text)
+    // am ende von char arrays muss ein nullterminator stehen
+    const char name[] = "Aaron"; // nullterminator automatisch bei dieser schreibweise
 }
