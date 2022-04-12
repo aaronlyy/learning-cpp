@@ -4,7 +4,7 @@
 
 ### Installation of compiler
 
-- Download and install [cygwin](https://www.cygwin.com/) and select g++, gcc
+- Download and install [cygwin](https://www.cygwin.com/) and select g++, gcc, make, cmake
 
 ## Assembling, Compiling & Linking
 
