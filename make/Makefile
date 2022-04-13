@@ -19,14 +19,23 @@ CFLAGS=-c -Wall # compiler flags
 ASSEMBLYFLAGS=-S -masm=intel
 
 BIN=hello.exe # output name
-SOURCE=main.cpp func.cpp # cpp source files
 HEADER=func.h # header dependencies
 OBJECTS=main.o func.o # objects
 
-# first target (executed by default)
-.PHONY: all # target is executed even if a file calles "all" exists (.PHONY)
-all: $(BIN) # accesses the BIN variable
+RM=rm -f
 
+# --- default target executed when no target is given to make ---
+default: all
+.PHONY: default
+
+# --- build all & fresh targets ---
+all: $(BIN) # accesses the BIN variable
+.PHONY: all
+
+fresh: cleanall all # delete everything and make a fresh build
+.PHONY: fresh
+
+# --- single build targets ---
 $(BIN): $(OBJECTS) # accesses the OBJECTS variable and adds it as dependencies
 # $@ is replaced by the target name ($(BIN))
 	$(CC) $(OBJECTS) -o $@
@@ -38,17 +47,19 @@ $(BIN): $(OBJECTS) # accesses the OBJECTS variable and adds it as dependencies
 # $< is replaced by the first dependency (%.cpp)
 	$(CC) $(CFLAGS) -c $<
 
-.PHONY: clean
-clean:
-	rm *.o
 
+# --- clean targets ---
+cleanall: clean
+	$(RM) $(BIN)
 .PHONY: cleanall
-cleanall:
-	rm -f *.o
-	rm -f $(BIN)
 
-# main.o: main.cpp
-# 	$(CC) $(CFLAGS) $^
+clean: cleans cleano
+.PHONY: clean
 
-# func.o: func.cpp func.h
-# 	$(CC) $(CFLAGS) $<
+cleano:
+	$(RM) *.o
+.PHONY: cleano
+
+cleans:
+	$(RM) *.s
+.PHONY: cleans
