@@ -25,15 +25,15 @@ OBJECTS=main.o func.o # objects
 RM=rm -f
 
 # --- default target executed when no target is given to make ---
-default: all
 .PHONY: default
+default: all
 
 # --- build all & fresh targets ---
-all: $(BIN) # accesses the BIN variable
 .PHONY: all
+all: $(BIN) # accesses the BIN variable
 
-fresh: cleanall all # delete everything and make a fresh build
 .PHONY: fresh
+fresh: cleanall all # delete everything and make a fresh build
 
 # --- single build targets ---
 $(BIN): $(OBJECTS) # accesses the OBJECTS variable and adds it as dependencies
@@ -48,25 +48,25 @@ $(BIN): $(OBJECTS) # accesses the OBJECTS variable and adds it as dependencies
 	$(CC) $(CFLAGS) -c $<
 
 # --- run targets ---
+.PHONY: run
 run: $(BIN)
 	.\$(BIN)
-.PHONY: run
 
 runfresh: fresh run
 .PHONY: runfresh
 
 # --- clean targets ---
+.PHONY: cleanall
 cleanall: clean
 	$(RM) $(BIN)
-.PHONY: cleanall
 
-clean: cleans cleano
 .PHONY: clean
+clean: cleans cleano
 
+.PHONY: cleano
 cleano:
 	$(RM) *.o
-.PHONY: cleano
 
+.PHONY: cleans
 cleans:
 	$(RM) *.s
-.PHONY: cleans
