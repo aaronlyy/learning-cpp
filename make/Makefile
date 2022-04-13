@@ -1,31 +1,54 @@
-# this is a comment
+# basic syntax
+
+#! dont use spaces, use tabs
 
 # target: dependencies
 # 	action
 
+# $< is replaced by the first dependency
+# $^ is replaced by the all dependencies
+# $@ is replaced by target name
+# $(variable) access variables
+# %.o %.c are name patterns
+
+# .PHONY executes everytime even if a file called like the target exists
+
 # variables
 CC=g++ # compiler
 CFLAGS=-c -Wall # compiler flags
-OUT=main.exe # output name
+ASSEMBLYFLAGS=-S -masm=intel
+
+BIN=hello.exe # output name
+SOURCE=main.cpp func.cpp # cpp source files
+HEADER=func.h # header dependencies
+OBJECTS=main.o func.o # objects
 
 # first target (executed by default)
-all: $(OUT)
+.PHONY: all # target is executed even if a file calles "all" exists (.PHONY)
+all: $(BIN) # accesses the BIN variable
 
-allrun: $(OUT)
-	.\$(OUT)
+$(BIN): $(OBJECTS) # accesses the OBJECTS variable and adds it as dependencies
+# $@ is replaced by the target name ($(BIN))
+	$(CC) $(OBJECTS) -o $@
 
-$(OUT): main.o func.o
-	$(CC) main.o func.o -o $(OUT)
+%.s: %.cpp $(HEADER)
+	$(CC) $(ASSEMBLYFLAGS) $<
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) main.cpp
+%.o: %.cpp $(HEADER)
+# $< is replaced by the first dependency (%.cpp)
+	$(CC) $(CFLAGS) -c $<
 
-func.o: func.cpp func.h
-	$(CC) $(CFLAGS) func.cpp
-
+.PHONY: clean
 clean:
 	rm *.o
 
+.PHONY: cleanall
 cleanall:
-	rm *.o
-	rm *.exe
+	rm -f *.o
+	rm -f $(BIN)
+
+# main.o: main.cpp
+# 	$(CC) $(CFLAGS) $^
+
+# func.o: func.cpp func.h
+# 	$(CC) $(CFLAGS) $<
