@@ -47,6 +47,13 @@ $(BIN): $(OBJECTS) # accesses the OBJECTS variable and adds it as dependencies
 # $< is replaced by the first dependency (%.cpp)
 	$(CC) $(CFLAGS) -c $<
 
+# --- run targets ---
+run: $(BIN)
+	.\$(BIN)
+.PHONY: run
+
+runfresh: fresh run
+.PHONY: runfresh
 
 # --- clean targets ---
 cleanall: clean
