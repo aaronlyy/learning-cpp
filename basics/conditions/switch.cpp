@@ -1,5 +1,7 @@
 #include <iostream>
 
+// switch is mostly used with enums
+
 int main() {
     int a = 17;
 
