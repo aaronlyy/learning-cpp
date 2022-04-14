@@ -4,18 +4,18 @@
 
 ### Installation of compiler
 
-- Download and install [cygwin](https://www.cygwin.com/) and select g++, gcc, make, cmake
+- Download and install [cygwin](https://www.cygwin.com/) and select gcc-g++, gcc-core, make, cmake
 
 ## Assembling, Compiling & Linking
 
-### Assemble code
+### Compile code
 
 ```txt
 g++ -S 
 input.cpp -o output.s
 ```
 
-### Compile code to object code
+### Assemble code to object code
 
 ```txt
 g++ -c input.cpp input2.cpp
