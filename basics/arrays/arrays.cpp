@@ -12,7 +12,7 @@ int main() {
 
     // create new array of doubles (c-style) (heap)
     unsigned int size = 3;
-    double *arr3 = new double[size];
+    double *arr3 = new double[size]; // pointer points to first element
     arr3[0] = 1;
     arr3[1] = 2;
     arr3[2] = 3;
