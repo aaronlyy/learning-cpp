@@ -11,7 +11,8 @@ int main() {
     }
 
     // create new array of doubles (c-style) (heap)
-    double *arr3 = new double[3];
+    unsigned int size = 3;
+    double *arr3 = new double[size];
     arr3[0] = 1;
     arr3[1] = 2;
     arr3[2] = 3;
@@ -19,8 +20,9 @@ int main() {
     for (int i = 0; i < 3; i++) {
         std::cout << arr3[i] << "\n";
     }
-    // free space on heap
+    // free space on heap and set pointer to nullptr
     delete[] arr3;
+    arr3 = nullptr;
 
     // create array of chars (text)
     // am ende von char arrays muss ein nullterminator stehen
