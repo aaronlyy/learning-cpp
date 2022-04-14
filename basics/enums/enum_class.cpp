@@ -32,4 +32,11 @@ enum class TestCode: unsigned char {
 int main() {
     ExitCode code1 = ExitCode::ERROR;
     TestCode code2 = TestCode::ERROR;
+
+    if (code1 == ExitCode::ERROR) {
+        std::cout << "code1: ExitCode::ERROR";
+    }
+    else {
+        std::cout << "code1: idk";
+    }
 }
