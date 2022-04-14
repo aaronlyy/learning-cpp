@@ -21,6 +21,8 @@ enum class TestCode: unsigned char {
     UNKNOWN = 3
 };
 
+// enum class values are own types (enum == 2 doesnt work)
+
 // can be replaced by, values are given incremental from 0
 // enum ExitCode {
 //     OK,

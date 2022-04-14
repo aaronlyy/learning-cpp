@@ -12,6 +12,8 @@ enum ExitCode {
     UNKNOWN = 3
 };
 
+// enums values are normal types
+
 // can be replaced by, values are given incremental from 0
 // enum ExitCode {
 //     OK,
@@ -29,6 +31,10 @@ int main() {
     }
     else {
         code = ExitCode::ERROR;
+    }
+
+    if (code == 0) {
+        std::cout << "hi";
     }
 
     return code;
