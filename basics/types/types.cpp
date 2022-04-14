@@ -25,4 +25,6 @@ int main() {
     long double f = 3.14; // size of long double is 16 bytes
 
     bool h = true; // size of bool is 1
+
+    std::cout << sizeof(c); // get size of variable (Bytes)
 }
