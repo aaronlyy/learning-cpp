@@ -27,4 +27,9 @@ int main() {
     // create array of chars (text)
     // am ende von char arrays muss ein nullterminator stehen
     const char name[] = "Aaron"; // nullterminator automatisch bei dieser schreibweise
+
+    // char arrays
+    char* name = "Hans"; // <=> char* name{"Hans"}
+    // name also is a pointer, but with a \0 at the end, so functions dont need size params
+
 }
