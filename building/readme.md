@@ -1,4 +1,4 @@
-# How to compile a c++ program
+# How to build a c++ program
 
 ## Windows
 
