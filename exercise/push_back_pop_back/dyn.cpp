@@ -5,7 +5,7 @@
 void push_back(int *&arr, const unsigned int &size, const int &value) {
     int* new_array = new int[size+1];
 
-    for (int i = 0; i < size; i++){
+    for (unsigned int i = 0; i < size; i++){
         new_array[i] = arr[i];
     }
 
@@ -19,7 +19,7 @@ void push_back(int *&arr, const unsigned int &size, const int &value) {
 void pop_back(int *&arr, const unsigned int &size) {
     int *new_array = new int[size-1];
 
-    for (int i = 0; i < size-1; i++) {
+    for (unsigned int i = 0; i < size-1; i++) {
         new_array[i] = arr[i];
     }
 
@@ -29,7 +29,7 @@ void pop_back(int *&arr, const unsigned int &size) {
 
 
 void print_array(int *&array, const unsigned int &size) {
-    for (int i = 0; i < size; i++){
+    for (unsigned int i = 0; i < size; i++){
         std::cout << array[i] << "\n";
     }
 }
