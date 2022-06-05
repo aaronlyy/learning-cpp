@@ -19,8 +19,8 @@ CFLAGS=-c -Wall # compiler flags
 ASSEMBLYFLAGS=-S -masm=intel
 
 BIN=dyn.exe # output name
-HEADER=dyn_array.hpp # header dependencies
-OBJECTS=main.o dyn_array.o # objects
+HEADER=dynamic.hpp # header dependencies
+OBJECTS=main.o dynamic.o # objects
 
 RM=rm -f
 
